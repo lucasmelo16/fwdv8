@@ -1,9 +1,7 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
-//define('PASTAPROJETO', 'AulaBanco');
-define('PASTAPROJETO', 'AulaBanco');
-/* Função criada para retornar o tipo de requisição */
+define('fwdv8', 'fwdv');
 
     function checkRequest() {
 
@@ -39,7 +37,7 @@ define('PASTAPROJETO', 'AulaBanco');
 $answer = checkRequest();
 $request = $_SERVER['REQUEST_URI']; 
 
-// IDENTIFICA A URI DA REQUISIÇÃO
+
 $args = explode('/', rtrim($request, '/'));
 $endpoint = array_shift($args);
 
@@ -50,16 +48,16 @@ $endpoint = array_shift($args);
 
     if ($args) {
 
-	    $request = '/'.PASTAPROJETO.'/'.$args[0];
+	    $request = '/'.fwdv8.'/'.$args[0];
 }
 
     switch ($request) {
 
-        case '/'.PASTAPROJETO:
+        case '/'.fwdv8:
         require __DIR__ . '/api/api.php';
         break;
 
-        case '/'.PASTAPROJETO.'/' :
+        case '/'.fwdv8.'/' :
         require __DIR__ . '/api/api.php';
         break;
 
@@ -67,16 +65,16 @@ $endpoint = array_shift($args);
         require __DIR__ . '/api/api.php';
         break;
 
-        case '/'.PASTAPROJETO.'/pessoas' :
+        case '/'.fwdv8.'/pessoas' :
         require __DIR__ . '/api/'.$answer.'_pessoa.php';
         break;
 
-        case '/'.PASTAPROJETO.'/conteudo' :
-        require __DIR__ . '/api/'.$answer.'_conteudo.php';
+        case '/'.fwdv8.'/Jogo' :
+        require __DIR__ . '/api/'.$answer.'_Jogo.php';
         break;
     
         default:
-        //require __DIR__ . '/api/404.php';
+        require __DIR__ . '/api/404.php';
         break;
 }
 

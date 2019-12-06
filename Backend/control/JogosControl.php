@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__.'/../model/Jogos.php';
+include __DIR__.'/../model/Jogo.php';
 
 class JogosControl{
 
